@@ -2,23 +2,57 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
+    android:layout_marginLeft="0dp"
     android:layout_marginRight="10dp"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:dividerPadding="5dp"
+    android:divider="@drawable/divider"
+    android:showDividers ="middle"
+    >
 
-    <TextView
-        android:id="@+id/textView_title"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="5dp"
+        android:contentDescription="@string/logo" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/element_text"/>
-    <TextView
-        android:id="@+id/textView_company"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/element_text"/>
-    <TextView
-        android:id="@+id/textView_location"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="@string/element_text"/>
+        android:layout_height="113dp"
+        android:dividerPadding="@android:dimen/app_icon_size"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/element_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_company"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="0dp"
+            android:text="@string/element_text"
+            android:includeFontPadding="false"/>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView_location"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_marginStart="20dp"-->
+        <!--            android:layout_marginLeft="0dp"-->
+        <!--            android:text="@string/element_text"-->
+        <!--            android:layout_marginBottom="5dp"-->
+        <!--            android:textStyle="italic"/>-->
+    </LinearLayout>
+
+
 </LinearLayout>
