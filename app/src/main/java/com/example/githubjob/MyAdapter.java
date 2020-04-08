@@ -5,7 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -33,12 +36,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder myViewHolder, int i) {
-        TextView textViewCompany = myViewHolder.textView.findViewById(R.id.textView_company);
-        textViewCompany.setText(mDataSet.get(i).getCompany());
+        ImageView logo = myViewHolder.textView.findViewById(R.id.logo);
+        Picasso.get().load(mDataSet.get(i).getLogo()).error(R.drawable.no_photo).resize(150, 150).centerInside().into(logo);
+
         TextView textViewTitle = myViewHolder.textView.findViewById(R.id.textView_title);
         textViewTitle.setText(mDataSet.get(i).getTitle());
-        TextView textViewLocation = myViewHolder.textView.findViewById(R.id.textView_location);
-        textViewLocation.setText(mDataSet.get(i).getLocation());
+        TextView textViewCompany = myViewHolder.textView.findViewById(R.id.textView_company);
+        textViewCompany.setText(mDataSet.get(i).getCompany());
+        textViewCompany.append("\n");
+        textViewCompany.append(mDataSet.get(i).getLocation());
+//        TextView textViewLocation = myViewHolder.textView.findViewById(R.id.textView_location);
+//        textViewLocation.setText(mDataSet.get(i).getLocation());
     }
 
     @Override

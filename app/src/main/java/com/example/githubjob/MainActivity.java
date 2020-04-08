@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    String URL = "https://jobs.github.com/positions.json?description=python&full_time=true&location=sf";
+    String URL = "https://jobs.github.com/positions.json?description=java&full_time=true&location=sf";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,26 @@ public class MainActivity extends AppCompatActivity {
 
         mContext = getApplicationContext();
         mActivity = MainActivity.this;
+        String lat = ((EditText)findViewById(R.id.lat)).getText().toString();
+        if (lat.length() == 0) {
+            lat = "37.3229978";
+        }
+        String lon = ((EditText)findViewById(R.id.lon)).getText().toString();
+        if (lon.length() == 0) {
+            lon = "-122.0321823";
+        }
+        String topic = ((EditText)findViewById(R.id.topic)).getText().toString();
+        if (topic.equals("Topic (Java, Python etc.)")) {
+            topic = "java";
+        }
 
+        URL = "https://jobs.github.com/positions.json?description="
+                + topic
+                + "&lat="
+                + lat
+                + "&lon="
+                + lon;
+        //Log.e("URL", URL);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
 
