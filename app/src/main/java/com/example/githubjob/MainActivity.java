@@ -42,31 +42,32 @@ public class MainActivity extends AppCompatActivity {
 
         mContext = getApplicationContext();
         mActivity = MainActivity.this;
-        String lat = ((EditText)findViewById(R.id.lat)).getText().toString();
-        if (lat.length() == 0) {
-            lat = "37.3229978";
-        }
-        String lon = ((EditText)findViewById(R.id.lon)).getText().toString();
-        if (lon.length() == 0) {
-            lon = "-122.0321823";
-        }
-        String topic = ((EditText)findViewById(R.id.topic)).getText().toString();
-        if (topic.equals("Topic (Java, Python etc.)")) {
-            topic = "java";
-        }
 
-        URL = "https://jobs.github.com/positions.json?description="
-                + topic
-                + "&lat="
-                + lat
-                + "&lon="
-                + lon;
-        //Log.e("URL", URL);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                String lat = ((EditText)findViewById(R.id.lat)).getText().toString();
+                if (lat.length() == 0) {
+                    lat = "37.3229978";
+                }
+                String lon = ((EditText)findViewById(R.id.lon)).getText().toString();
+                if (lon.length() == 0) {
+                    lon = "-122.0321823";
+                }
+                String topic = ((EditText)findViewById(R.id.topic)).getText().toString();
+                if (topic.length() == 0) {
+                    topic = "java";
+                }
+
+                URL = "https://jobs.github.com/positions.json?description="
+                        + topic
+                        + "&lat="
+                        + lat
+                        + "&lon="
+                        + lon;
+                Log.e("URL", URL);
                 RequestQueue queue = Volley.newRequestQueue(mContext);
                 getJobList(URL, queue, new VolleyCallBack());
 
