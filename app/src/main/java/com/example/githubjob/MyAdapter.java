@@ -7,8 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private String[] mDataSet;
+    private List<JobItem> mDataSet;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public View textView;
         public MyViewHolder(@NonNull View itemView) {
@@ -17,7 +19,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-    public MyAdapter(String[] mDataSet) {
+    public MyAdapter(List<JobItem> mDataSet) {
         this.mDataSet = mDataSet;
     }
 
@@ -31,12 +33,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder myViewHolder, int i) {
-        TextView textView = myViewHolder.textView.findViewById(R.id.textView);
-        textView.setText(mDataSet[i]);
+        TextView textViewCompany = myViewHolder.textView.findViewById(R.id.textView_company);
+        textViewCompany.setText(mDataSet.get(i).getCompany());
+        TextView textViewTitle = myViewHolder.textView.findViewById(R.id.textView_title);
+        textViewTitle.setText(mDataSet.get(i).getTitle());
+        TextView textViewLocation = myViewHolder.textView.findViewById(R.id.textView_location);
+        textViewLocation.setText(mDataSet.get(i).getLocation());
     }
 
     @Override
     public int getItemCount() {
-        return mDataSet.length;
+        return mDataSet.size();
     }
 }

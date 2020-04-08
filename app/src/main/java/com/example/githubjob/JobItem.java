@@ -13,7 +13,7 @@ public class JobItem {
         this.company = obj.getString("company");
         this.location = obj.getString("location");
         this.title = obj.getString("title");
-        this.logo = obj.getString("company_logo")
+        this.logo = obj.getString("company_logo");
     }
 
     public String getUrl() {
