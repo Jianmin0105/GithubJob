@@ -11,5 +11,5 @@
 
 Below is the demo:
 <p align="center">
-  <img src="https://github.com/Jianmin0105/images/blob/master/GithubJob-demo.gif" width="30%" height="30%"/>
+  <img src="https://github.com/Jianmin0105/images/blob/master/GithubJob-demo.gif" width="50%" height="50%"/>
 </p>
